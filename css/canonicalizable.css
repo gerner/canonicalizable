@@ -1,0 +1,48 @@
+html>body {
+	font-size: 16px;
+	padding:0px;
+	background-color: DarkGray;
+}
+
+#wrapper {
+	width: 720px;
+	margin: 0 auto;
+	padding: 1.5em 10px;
+	border-left:2px solid silver;
+	border-right:2px solid silver;
+	background-color:white;
+}
+
+#homepage_form .field {
+	font-size: 1.5em;
+	width:100%;
+}
+
+#homepage_form .field input {
+	width:300px;
+}
+
+.field .form_prefix {
+	margin-right: 0.25em;
+	font-size:0.75em;
+}
+
+.messagebox {
+	padding:10px;
+	border:2px solid silver;
+	background-color: Gainsboro;
+	width:90%;
+	margin-bottom:10px;
+}
+
+.goodbox {
+	background-color: PaleGreen;
+}
+
+.warnbox {
+	background-color: Khaki;
+}
+
+.badbox {
+	background-color: LightSalmon;
+}
