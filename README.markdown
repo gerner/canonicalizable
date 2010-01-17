@@ -9,7 +9,7 @@ This is a reference application illustrating how to use the Linkscape API in a r
  * controllers/canonicalizable.php for code that uses the metrics response
  * index.php for code that outputs data from the API
  
-Check out http://apiwiki.seomoz.org for more information, or visit http://www.seomoz.org/api to sign up.
+Check out the [API Wiki](http://apiwiki.seomoz.org) for more information, or [sign up](http://www.seomoz.org/api) for a free account.
  
 Installation
 ------------
