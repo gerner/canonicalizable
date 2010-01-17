@@ -32,7 +32,7 @@ require_once("controllers/canonicalizable.php");
 
 <div class="messagebox <?php echo $homepage_isgood?"goodbox":"badbox";?>">
 <dl>
-<dt>URL:</dt><dd><?php echo htmlspecialchars($homepage); ?></dd>
+<dt>URL:</dt><dd><a href="http://<?php echo htmlspecialchars($homepage); ?>"><?php echo htmlspecialchars($homepage); ?></a></dd>
 <dt>Title:</dt><dd><?php echo htmlspecialchars($c_homepage->homepage->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></dd>
 <dt>HTTP Status:</dt><dd><?php echo $c_homepage->homepage->metrics->us; ?></dd>
 <dt>Links:</dt><dd><?php echo $c_homepage->homepage->metrics->uid;?></dd>
@@ -60,9 +60,10 @@ require_once("controllers/canonicalizable.php");
 <ul>
 <li><?php echo $candidate_errors; ?> Errors</li>
 <li><?php echo $candidate_warnings;?> Warnings</li>
+<li><?php echo count($candidates) - $candidate_errors - $candidate_warnings;?> Pages checked doing the right thing</li>
 </ul>
 <?php } else {?>
-Everything Is looking good:
+Everything looks good:
 <?php } // if($candidate_errors + $candidate_warnings > 0)?>
 
 <?php foreach($candidates as $candidate_info) {
@@ -70,7 +71,7 @@ list($isgood, $candidate, $message) = $candidate_info;?>
 
 <div class="messagebox <?php if($isgood == 0) echo "goodbox"; elseif($isgood == 1) echo "warnbox"; else echo "badbox";?>">
 <dl>
-<dt>URL:</dt><dd><?php echo htmlspecialchars($candidate->url); ?></dd>
+<dt>URL:</dt><dd><a href="http://<?php echo htmlspecialchars($candidate->url); ?>"><?php echo htmlspecialchars($candidate->url); ?></a></dd>
 <dt>Title:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></dd>
 <dt>HTTP Status :</dt><dd><?php echo $candidate->metrics->us; ?></dd>
 <dt>Links:</dt><dd><?php echo $candidate->metrics->uid;?></dd>

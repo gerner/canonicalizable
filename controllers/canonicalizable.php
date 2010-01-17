@@ -50,7 +50,8 @@ if(isset($_GET["homepage_input"]))
 	$candidate_warnings = 0;
 	foreach($c_homepage->candidates as $candidate)
 	{
-		if($candidate->metrics->us > 0) //skip pages Linkscape hasn't crawled
+		
+		if($candidate->metrics->uid > 0 || $candidate->metrics->us > 0) //only consider pages with links or that Linkscape crawled
 		{
 			if($candidate->metrics->us == 301 && $candidate->metrics->ur == $homepage)
 			{
@@ -76,18 +77,18 @@ if(isset($_GET["homepage_input"]))
 				}
 				else if($candidate->metrics->us >= 200)
 					$message = "This page returned a ".$candidate->metrics->us.".  It should probably be 301 redirecting to your homepage.";
+				else if($candidate->metrics->us == 0)
+				{
+					$isgood = 1;
+					$message = "Linkscape didn't crawl this page.  But there's at least one link here, so you should make sure the page is doing the right thing.";
+				}
 				else
-					$message = "This page had some error which prevented it from being crawled.  It may be blocked by robots.txt, but you should probably redirect it to your homepage with a 301";
+					$message = "This page couldn't be crawled.  It may be blocked by robots.txt, but you should probably redirect it to your homepage with a 301";
 			}
+			if($isgood == 2) $candidate_errors++;
+			else if($isgood == 1) $candidate_warnings++;
+			$candidates[] = array($isgood, $candidate, $message);
 		}
-		else
-		{
-			$isgood = 1;
-			$message = "Linkscape didn't crawl this page.  That could mean there are no links to it, or that it's already doing the right thing.  But you might want to check yourself.";
-		}
-		if($isgood == 2) $candidate_errors++;
-		else if($isgood == 1) $candidate_warnings++;
-		$candidates[] = array($isgood, $candidate, $message);
 	}	
 	rsort($candidates);
 }

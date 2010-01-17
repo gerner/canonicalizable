@@ -25,10 +25,17 @@ class CanonicalizingHomepage
 		$candidate_urls = array();
 		
 		//add the opposite of the www vs non-www version as a candidate to check
+		$alternate_domain;
 		if(strpos($this->homepage_url, "www.") === 0)
+		{
 			$candidate_urls[] = substr($this->homepage_url, 4);
+			$alternate_domain = substr($this->homepage_url, 4, strlen($this->homepage_url)-5);
+		}
 		else
+		{
 			$candidate_urls[] = "www.".$this->homepage_url;
+			$alternate_domain = substr($this->homepage_url, 0, strlen($this->homepage_url)-1);
+		}
 			
 		$possible_files = array(
 			"index.htm", 
@@ -48,6 +55,8 @@ class CanonicalizingHomepage
 			$candidate_url = $this->domain."/".$file;
 			if($candidate_url != $this->homepage_url)
 				$candidate_urls[] = $candidate_url;
+			$candidate_url = $alternate_domain."/".$file;
+			$candidate_urls[] = $candidate_url;
 		}
 		
 		return $candidate_urls;
