@@ -36,7 +36,7 @@ require_once("controllers/canonicalizable.php");
 <dt>Title:</dt><dd><?php echo htmlspecialchars($c_homepage->homepage->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></dd>
 <dt>HTTP Status:</dt><dd><?php echo $c_homepage->homepage->metrics->us; ?></dd>
 <dt>Links:</dt><dd><?php echo $c_homepage->homepage->metrics->uid;?></dd>
-<dt>Redirects To:</dt><dd><?php echo htmlspecialchars($c_homepage->homepage->metrics->ur); ?></dd>
+<?php if($c_homepage->metrics->ur) {?><dt>Redirects To:</dt><dd><?php echo htmlspecialchars($c_homepage->homepage->metrics->ur); ?></dd><?php } ?>
 </dl>
 <p><?php echo $homepage_message; ?></p>
 </div>
@@ -75,7 +75,7 @@ list($isgood, $candidate, $message) = $candidate_info;?>
 <dt>Title:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></dd>
 <dt>HTTP Status :</dt><dd><?php echo $candidate->metrics->us; ?></dd>
 <dt>Links:</dt><dd><?php echo $candidate->metrics->uid;?></dd>
-<dt>Redirects To:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ur); ?></dd>
+<?php if($candidate->metrics->ur) {?><dt>Redirects To:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ur); ?></dd><?php } ?>
 </dl>
 <p><?php echo $message; ?></p>
 </div>
@@ -86,7 +86,8 @@ list($isgood, $candidate, $message) = $candidate_info;?>
 <?php }?>
 
 <div class="attrib_footer">
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">Canonicalizable</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.nickgerner.com/2010/01/canonicalizable/" property="cc:attributionName" rel="cc:attributionURL">Nick Gerner</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">Canonicalizable</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.nickgerner.com/2010/01/canonicalizable/" property="cc:attributionName" rel="cc:attributionURL">Nick Gerner</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.<br />
+<a href="http://github.com/gerner/canonicalizable">Check out the source code for yourself!</a>
 </div>
 
 </div>

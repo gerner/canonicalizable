@@ -10,6 +10,8 @@ This is a reference application illustrating how to use the Linkscape API in a r
  * index.php for code that outputs data from the API
  
 Check out the [API Wiki](http://apiwiki.seomoz.org) for more information, or [sign up](http://www.seomoz.org/api) for a free account.
+
+You can see a live version of this code at [http://www.nickgerner.com/canonicalizable/](http://www.nickgerner.com/canonicalizable/)
  
 Installation
 ------------
