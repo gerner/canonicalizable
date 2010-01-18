@@ -35,6 +35,17 @@ html>body {
 	margin-right:auto;
 	width:90%;
 	margin-bottom:10px;
+	padding-top:20px;
+}
+
+.messagebox li {
+	list-style: none;
+	margin-left: 5px;
+}
+
+.messagebox p {
+	margin:0px;
+	padding:0px;
 }
 
 .goodbox {

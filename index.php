@@ -31,13 +31,13 @@ require_once("controllers/canonicalizable.php");
 <p>This is the page you want users to end up first when they visit your site.</p>
 
 <div class="messagebox <?php echo $homepage_isgood?"goodbox":"badbox";?>">
-<dl>
-<dt>URL:</dt><dd><a href="http://<?php echo htmlspecialchars($homepage); ?>"><?php echo htmlspecialchars($homepage); ?></a></dd>
-<dt>Title:</dt><dd><?php echo htmlspecialchars($c_homepage->homepage->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></dd>
-<dt>HTTP Status:</dt><dd><?php echo $c_homepage->homepage->metrics->us; ?></dd>
-<dt>Links:</dt><dd><?php echo $c_homepage->homepage->metrics->uid;?></dd>
-<?php if($c_homepage->metrics->ur) {?><dt>Redirects To:</dt><dd><?php echo htmlspecialchars($c_homepage->homepage->metrics->ur); ?></dd><?php } ?>
-</dl>
+<ul>
+<li>URL: <a href="http://<?php echo htmlspecialchars($homepage); ?>"><?php echo htmlspecialchars($homepage); ?></a></li>
+<li>Title: <?php echo htmlspecialchars($c_homepage->homepage->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></li>
+<li>HTTP Status: <?php echo $c_homepage->homepage->metrics->us; ?></li>
+<li>Links: <?php echo $c_homepage->homepage->metrics->uid;?></li>
+<?php if($c_homepage->metrics->ur) {?><li>Redirects To: <?php echo htmlspecialchars($c_homepage->homepage->metrics->ur); ?></li><?php } ?>
+</ul>
 <p><?php echo $homepage_message; ?></p>
 </div>
 
@@ -70,13 +70,13 @@ Everything looks good:
 list($isgood, $candidate, $message) = $candidate_info;?>
 
 <div class="messagebox <?php if($isgood == 0) echo "goodbox"; elseif($isgood == 1) echo "warnbox"; else echo "badbox";?>">
-<dl>
-<dt>URL:</dt><dd><a href="http://<?php echo htmlspecialchars($candidate->url); ?>"><?php echo htmlspecialchars($candidate->url); ?></a></dd>
-<dt>Title:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></dd>
-<dt>HTTP Status :</dt><dd><?php echo $candidate->metrics->us; ?></dd>
-<dt>Links:</dt><dd><?php echo $candidate->metrics->uid;?></dd>
-<?php if($candidate->metrics->ur) {?><dt>Redirects To:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ur); ?></dd><?php } ?>
-</dl>
+<ul>
+<li>URL: <a href="http://<?php echo htmlspecialchars($candidate->url); ?>"><?php echo htmlspecialchars($candidate->url); ?></a></li>
+<li>Title:</dt><dd><?php echo htmlspecialchars($candidate->metrics->ut, ENT_NOQUOTES, "UTF-8"); ?></li>
+<li>HTTP Status: <?php echo $candidate->metrics->us; ?></li>
+<li>Links: <?php echo $candidate->metrics->uid;?></li>
+<?php if($candidate->metrics->ur) {?><li>Redirects To: <?php echo htmlspecialchars($candidate->metrics->ur); ?></li><?php } ?>
+</ul>
 <p><?php echo $message; ?></p>
 </div>
 <?php } // foreach($candidates as $candidate_info)?>

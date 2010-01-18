@@ -5,7 +5,13 @@
  * 
  * if you get 401 unauthorized errors, check that these values are correct
  */
-define("LSAPI_ACCESS_ID", "your_access_id_goes_here");
-define("LSAPI_SECRET_KEY", "your_secret_key_goes_here");
+define("LSAPI_ACCESS_ID", "your access id goes here");
+define("LSAPI_SECRET_KEY", "your secret key goes here");
 
+/*
+ * require everything we need in once place, here
+ */
+require_once("parallel_request.php");
+require_once("models/canonical_candidate.php");
+require_once("models/canonicalizing_homepage.php");
 ?>
