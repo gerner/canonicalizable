@@ -23,6 +23,23 @@ You'll need to copy configuration.php.tmpl to configuration.php and update a few
  * LSAPI_ACCESS_ID should be set to your Linkscape Access ID
  * LSAPI_SECRET_KEY should be set to your Linkscape Secret Key
  
+Code Organization
+-----------------
+
+Canonicalizable is implemented using a simple MVC (although it doesn't depend on any framework):
+
+ * index.php is the view and handles all of the layout
+ * controllers/canonicalizable.php handles most of the logic for the application
+ * models/canonicalizing_homepage.php abstracts the homepage of a domain and understands alternate candidate homepages
+ * models/canonical_candidate.php abstracts a single homepage candidate. *All the LSAPI interface can be found here.*
+
+Other files:
+
+ * configuration.php.tmpl is a template for the configuration file (configuration.php) you'll need to create and modify yourself.  This includes your LSAPI key information.
+ * includes.php includes all the models, configuraiton, etc.
+ * parallel_request.php wraps curl_multi and lets us hit LSAPI for many requests in parallel, which will make the pages load very quickly.
+ * css holds all the stylesheets 
+
 Thanks
 ------
 
