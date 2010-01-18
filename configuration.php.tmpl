@@ -9,6 +9,13 @@ define("LSAPI_ACCESS_ID", "your access id goes here");
 define("LSAPI_SECRET_KEY", "your secret key goes here");
 
 /*
+ * set this to your Google Analytics id to get Google analytics tracking codes 
+ * embedded in the footer of the tool.
+ * leave as false to disable this feature.
+ */
+define("GG_ANALYTICS_ID", false);
+
+/*
  * require everything we need in once place, here
  */
 require_once("parallel_request.php");
